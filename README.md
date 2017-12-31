@@ -38,15 +38,27 @@ HSTS (Http Strict Transport Security)
 		a'; DROP TABLE customers; --
 		SELECT * FROM customers WHERE name='a'; DROP TABLE customers; --' (customer table will be deleted)
 
-	Preventions 
+	Prevention:
 		1) Check the input - characters like quotes and slashes shall be ommitted
 		2) Use least privilage account - it possble do not use admin account in application
 		3) Use ORM like Entity Framework - ORM is good but if you use ORM with stored procedure ther might be a 
 				possibility of SQL Injection.
  
    
-4) Cross Site Request Forgery
-
+4) Cross Site Request Forgery - the attacker takes advantage of the authenticated cookie of a client which is logged on to. 
+		Since the said site uses a form to submit data and do transaction the attacker will send a form which is similar from the 
+		site the client is currently accessing.
+		
+	Prevention:
+	1) Use an anti forgery token in the form 
+		a) use asp-action='add' in form attributes
+			<form asp-action='add'> 
+		b) put [ValidateAntiForgeryToken] annotation to the action (method) that is  used in submitting the form
+			[HttpPost]
+			[ValidateAntiForgeryToken] 
+			
+			
+			
 5) Cross Site Scripting
 
 6) Open Redirection Attacks
