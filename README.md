@@ -69,8 +69,22 @@ HSTS (Http Strict Transport Security)
 
 	
 	
-6) Open Redirection Attacks
+6) Open Redirection Attacks - Attacker tricks you to login to another site which is similar to a bank site you are acesing and gets your
+		credentials (phising).
+		
+		e.g. 
+		http://bank.com/Account/LogOn?returnUrl=http://bank.net/Account/LogOn
+		As you can see above this link forward you to a Bank.net instead of Bank.com
 
+		Prevention:
+		1) Use a checking function to check if the URL is local
+		if (!Url.IsLocalUrl(returnUrl))
+		{
+			//throw
+		}
+		
+		
+		
 7) Click jacking
 
 8) Same Origin Policy
