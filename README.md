@@ -1,6 +1,25 @@
 # ASPDotNETCore-Security
 
-1) SSL (Secured Socket Layer)
+1) SSL (Secured Socket Layer) - using https from http
+
+e.g. implmentation
+startup.cs
+
+private readonly IHostingEnvironment _env;
+
+public Startup(IHostingEnvironment env) 
+{
+	_env = env;
+}
+
+public void ConfigureServices(IServiceCollection services)
+{
+	services.AddMvc();
+	
+	if (!env.IsDevelopment())
+		service.Configure<MvcOptions>(
+			o => o.Filters.Add(new RequireHttpsAttribute()));
+}
 
 2) SQL Injection
 
