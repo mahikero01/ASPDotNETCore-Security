@@ -85,6 +85,9 @@ HSTS (Http Strict Transport Security)
 		
 		
 		
-7) Click jacking
+7) Click jacking - Attacker trick the user to click a button but the said button will run a malicious script.
+
+	Prevention:
+	1) User is advise for such case for prevention
 
 8) Same Origin Policy
