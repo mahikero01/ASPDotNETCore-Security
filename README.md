@@ -90,4 +90,27 @@ HSTS (Http Strict Transport Security)
 	Prevention:
 	1) User is advise for such case for prevention
 
-8) Same Origin Policy
+	
+	
+	
+8) Same Origin Policy - Allows only client with the same domain (differents port is considered different origin even if both run on localhost).
+	
+	Ways to bypass:
+	1) using CORS (Cross Origin Resource Sharing) allow any origin in the Configure Method in Startup Class.
+		app.UseCors(c => c.AllowAnyOrigin());
+		
+	2) Using CORS with policy configured (ConfigureServices method in Startup class)
+		ConfigureServices {
+			services.AddCors(
+				options => 
+				{
+					option.AddPolicy(
+						"AllowBankCom",
+						c => c.WithOrigins("https://bank.com")
+					);
+				}
+			);
+		}
+		
+		Use the policy in the annotation of either controller or action
+		[EnableCors("AllowBankCom")]

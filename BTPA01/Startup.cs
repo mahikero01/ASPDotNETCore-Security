@@ -35,6 +35,9 @@ namespace BTPA01
                 app.UseDeveloperExceptionPage();
             }
 
+            //allows any origin 
+            app.UseCors(c => c.AllowAnyOrigin());
+
             app.UseMvc();
         }
     }
