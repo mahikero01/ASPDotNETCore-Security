@@ -59,8 +59,16 @@ HSTS (Http Strict Transport Security)
 			
 			
 			
-5) Cross Site Scripting
+5) Cross Site Scripting - Attacker places a JavaScript into webpage. Provides attacker access to everything in the browser.
 
+	Prevention:
+	1) Encoding replaces dangerous characters
+	2) MVC encodes everything that is in a variable automatically
+	3) you can use HTML helper encode to encode input 
+	4) Use CSP (Content Security Policy)
+
+	
+	
 6) Open Redirection Attacks
 
 7) Click jacking
